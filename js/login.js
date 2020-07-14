@@ -12,6 +12,7 @@ window.addEventListener("DOMContentLoaded", function() {
         authorizationHeader = btoa(loginInput.value);
         sendPing(function(status, response, xhr) {
             alert(response);
+            if (response === "Pong! Your API key works.") console.log("logged in")
         });
     });
 });
