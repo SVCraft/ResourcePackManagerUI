@@ -13,9 +13,9 @@ window.addEventListener("DOMContentLoaded", function() {
         sendPing(function(status, response, xhr) {
             if (response === "Pong! Your API key works.") {
              document.getElementById("login").innerHTML = "<a>API key validated</a>";
-            
-            };
-            if (response != "Pong! Your API key works.") alert("Key Incorrect");
+            } else {
+            alert("Your API key was incorrect, Please reload the page and try again!")
+            }
         });
     });
 });
