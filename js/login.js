@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", function() {
         authorizationHeader = btoa(loginInput.value);
         sendPing(function(status, response, xhr) {
             if (response === "Pong! Your API key works.") {
-             document.getElementById("login--window").innerHTML = "<a>API key validated</a>";
+             document.getElementById("login").innerHTML = "<div id="panel--window"><a>API key validated</a></div>";
             } else {
             alert("Your API key was incorrect, Please reload the page and try again!")
             }
