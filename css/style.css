@@ -9,7 +9,12 @@
 #login {
     background-color: #868686;
 }
+#panel {
+    background-color: grey;
+    color: grey;
+}
 #login--window {
+    border-radius: 25px;
     width: 25%;
     height: 25%;
     min-width: 400px;
@@ -25,11 +30,12 @@
     padding: 20px;
 }
 #panel--window {
+    border-radius: 25px;
     width: 95%;
     height: 95%;
     min-width: 400px;
     min-height: 200px;
-    background-color: white;
+    background-color: #414141;
     margin: 0;
     position: absolute;
     top: 50%;
