@@ -25,3 +25,7 @@ function sendAuthenticatedRequest(url, method, body, responseType, callback) {
 function sendPing(callback) {
     sendAuthenticatedRequest("ping", null, null, null, callback);
 }
+
+function sendList(callback) {
+    sendAuthenticatedRequest("list", null, null, null, callback);
+}
