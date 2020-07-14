@@ -9,6 +9,8 @@ window.addEventListener("DOMContentLoaded", function() {
 
     loginButton.addEventListener("click", function() {
         authorizationHeader = btoa(loginInput.value);
-        sendPing(alert);
+        sendPing(function(status, response, xhr) {
+            alert(response);
+        });
     });
 });

@@ -6,8 +6,8 @@ function sendAuthenticatedRequest(url, method, body, responseType, callback) {
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            callback(this.response);
+        if (this.readyState == 4) {
+            callback(this.status, this.response, this);
         }
     }
     xhr.open(method, apiBase + url);
