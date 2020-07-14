@@ -7,6 +7,8 @@ window.addEventListener("DOMContentLoaded", function() {
     });
 
     loginButton.addEventListener("click", function() {
+        loginButton.setAttribute("disabled", "disabled");
+
         authorizationHeader = btoa(loginInput.value);
         sendPing(function(status, response, xhr) {
             alert(response);
