@@ -3,7 +3,6 @@ window.addEventListener("DOMContentLoaded", function() {
     var loginButton = document.getElementById("login--button");
 
     loginInput.addEventListener("keydown", function(e) {
-        console.log(e);
         if (e.key == "Enter") loginButton.click();
     });
 
