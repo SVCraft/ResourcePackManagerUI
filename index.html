@@ -3,14 +3,22 @@
     <head>
         <title>Resource Pack Manager</title>
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet"><link>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
 
         <script src="js/api.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <p>Hello</p>
+        <div id="login" class="view-container" style="display: block;">
+            <div id="login--window">
+                <label for="login--token">Token</label>
+                <input class="form-control" id="login--token">
+                <div id="login--button--container">
+                    <button class="btn btn-success">Login</button>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
