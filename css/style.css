@@ -24,6 +24,21 @@
     color: white;
     padding: 20px;
 }
+#panel--window {
+    width: 95%;
+    height: 95%;
+    min-width: 400px;
+    min-height: 200px;
+    background-color: #414141;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 20px;
+}
 #login--button--container {
     text-align: center;
     margin-top: 20px;
