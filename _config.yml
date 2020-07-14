@@ -1,0 +1,8 @@
+title: Resourcepackmanagerui
+description: User Interface for Resource Pack Manager API
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-slate
+
+gems:
+  - jekyll-mentions
