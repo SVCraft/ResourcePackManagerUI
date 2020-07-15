@@ -45,6 +45,21 @@
     color: white;
     padding: 20px;
 }
+#file--window {
+    width: 90%;
+    height: 90%;
+    min-width: 300px;
+    min-height: 200px;
+    background-color: white;
+    margin: 0;
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 20px;
+}
 #login--button--container {
     text-align: center;
     margin-top: 20px;
