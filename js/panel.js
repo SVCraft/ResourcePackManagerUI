@@ -35,7 +35,7 @@ function list() {
                 var iconName;
                 if (file.type == "file") {
                     iconName = "file";
-                    var extention = file.name.substr(file.name.lastIndexOf("."));
+                    var extention = file.name.substr(file.name.lastIndexOf(".") + 1);
                     var specialFileIcon = fileIcons[extention];
                     if (specialFileIcon) {
                         iconName = specialFileIcon;
