@@ -15,9 +15,12 @@ window.addEventListener("DOMContentLoaded", function() {
             if (status == 200) {
                 document.getElementById('login').style.display = "none";
                 document.getElementById('panel').style.display = "block";
+                
+                list();
             } else {
                 alert("Your API key was incorrect, Please try again!");
                 loginButton.removeAttribute("disabled");
+                loginInput.value = "";
             }
         });
     });

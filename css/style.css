@@ -46,27 +46,26 @@
     padding: 20px;
 }
 #file--window {
-    width: 90%;
-    height: 90%;
-    min-width: 300px;
+    width: 50%;
+    height: 75%;
+    max-width: 500px;
     min-height: 200px;
     background-color: white;
-    margin: 0;
-    position: absolute;
-    top: 47%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     color: black;
     padding: 20px;
 }
-/*#buttons--container {
-    text-align: center;
-    vertical-align: bottom;
-    top: 250%;
-    margin-top: 10px;
-}*/
 #login--button--container {
     text-align: center;
     margin-top: 20px;
+}
+.file-entry {
+    margin: 2px;
+    cursor: pointer;
+}
+.file-entry:hover {
+    background-color: #eee;
+}
+.file-entry--name {
+    line-height: 30px;
+    margin: 5px;
 }
