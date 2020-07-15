@@ -6,7 +6,11 @@ window.addEventListener("DOMContentLoaded", function() {
 
         sendList(null, function(status, response, xhr) {
             //alert(response);
-            document.getElementById("file--window").innerHTML = `<h1>${response}</h1>`;
+            var fileWindow = document.getElementById("file--window");
+            fileWindow.innerHTML = "";
+            var h1 = document.createElement("h1");
+            h1.appendChild(document.createTextNode(response));
+            fileWindow.appendChild(h1);            
             listButton.removeAttribute("disabled");
         });
     });
