@@ -5,7 +5,8 @@ window.addEventListener("DOMContentLoaded", function() {
         listButton.setAttribute("disabled", "disabled");
 
         sendList(null, function(status, response, xhr) {
-            alert(response);
+            //alert(response);
+            document.getElementById("file--window").innerHTML = `<h1>${response}</h1>`;
             listButton.removeAttribute("disabled");
         });
     });
