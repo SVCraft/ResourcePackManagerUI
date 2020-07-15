@@ -84,5 +84,5 @@ function sendPing(callback) {
 function sendList(folder, callback) {
     var url = "list";
     if (typeof folder == "string") url += "?folder="+ folder;
-    sendAuthenticatedRequest("list", null, null, null, callback);
+    sendAuthenticatedRequest(url, null, null, null, callback);
 }
