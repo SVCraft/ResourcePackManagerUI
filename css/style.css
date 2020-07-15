@@ -60,6 +60,12 @@
     color: white;
     padding: 20px;
 }
+/*#buttons--container {
+    text-align: center;
+    vertical-align: bottom;
+    top: 250%;
+    margin-top: 10px;
+}*/
 #login--button--container {
     text-align: center;
     margin-top: 20px;
