@@ -45,14 +45,18 @@
     color: white;
     padding: 20px;
 }
-#files--window {
-    width: 50%;
+#panel--window .row {
+    height: 100%;
+}
+.files--card {
     height: 75%;
     max-width: 500px;
     min-height: 200px;
     background-color: white;
     color: black;
-    padding: 20px 0px;
+}
+#files--card .card-body {
+    padding: 1.25rem 0px;
 }
 #login--button--container {
     text-align: center;
@@ -69,4 +73,7 @@
 .file-entry--name {
     line-height: 30px;
     margin: 5px;
+}
+#files--secondary {
+    height: 100%;
 }

@@ -83,6 +83,16 @@ function sendPing(callback) {
  */
 function sendList(folder, callback) {
     var url = "list";
-    if (typeof folder == "string") url += "?folder="+ folder;
+    if (typeof folder == "string" && folder.length > 0) url += "?folder="+ encodeURIComponent(folder);
     sendAuthenticatedRequest(url, null, null, null, callback);
+}
+
+/**
+ * Send a read request to the api read the specified file
+ * 
+ * @param {string} [folder] The file to read
+ * @param {requestCallback} callback A callback with the response being the file content
+ */
+function sendRead(file, callback) {
+    sendAuthenticatedRequest("list?file="+ encodeURIComponent(file), null, null, null, callback);
 }

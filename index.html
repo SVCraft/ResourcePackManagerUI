@@ -9,6 +9,7 @@
         <script src="js/api.js"></script>
         <script src="js/login.js"></script>
         <script src="js/panel.js"></script>
+        <script src="js/editor.js"></script>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         
         
@@ -52,9 +53,24 @@
                 <div id="buttons--container">
                     <button class="btn btn-success" id="list--button">List</button>
                 </div>
-                <div id="files--window">
-                    <div style="text-align: center;">
-                        <i class="fas fa-spinner fa-spin fa-10x"></i>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card files--card">
+                            <div class="card-body">
+                                <div id="files--window">
+                                    <div style="text-align: center;">
+                                        <i class="fas fa-spinner fa-spin fa-10x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card files--card">
+                            <div class="card-body">
+                                <div id="files--secondary"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
