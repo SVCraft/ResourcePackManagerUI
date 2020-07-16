@@ -21,15 +21,16 @@ window.addEventListener("DOMContentLoaded", function() {
 function list() {
     sendList(currentPath, function (status, response, xhr) {
         if (status == 200) {
-            var fileWindow = document.getElementById("file--window");
+            var filesWindow = document.getElementById("files--window");
             var json = JSON.parse(response);
 
-            fileWindow.innerHTML = "";
+            filesWindow.innerHTML = "";
             for (var i = 0; i < json.length; i++) {
                 var file = json[i];
                 var fileElement = document.createElement("div");
 
                 fileElement.className = "file-entry";
+                fileElement.setAttribute("name", file.name);
                 var icon = document.createElement("i");
 
                 var iconName;
@@ -53,7 +54,21 @@ function list() {
                 nameElement.appendChild(document.createTextNode(file.name));
                 fileElement.appendChild(nameElement);
 
-                fileWindow.appendChild(fileElement);
+                if (file.type == "folder") {
+                    fileElement.addEventListener("click", function() {
+                        currentPath += this.getAttribute("name");
+                        list();
+                    });
+
+                    fileElement.addEventListener("mouseover", function() {
+                        this.firstChild.className = "fas fa-fw fa-folder-open";
+                    });
+                    fileElement.addEventListener("mouseout", function() {
+                        this.firstChild.className = "fas fa-fw fa-folder";
+                    });
+                }
+
+                filesWindow.appendChild(fileElement);
             }
         } else {
             alert("Failed to list files. "+ response);
