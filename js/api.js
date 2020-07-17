@@ -9,6 +9,7 @@
 
 var apiBase = "https://rpmapi.bkaw.cf/";
 var authorizationHeader = null;
+var lastApiRequest = null;
 
 /**
  * Send a XMLHttpRequest to the specified api endpoint
@@ -27,6 +28,15 @@ function sendRequest(url, method, body, responseType, authenticate, callback) {
     xhr.onreadystatechange = function() {
         if (this.readyState == 4) {
             callback(this.status, this.response, this);
+            if (this.status == 0) {
+                var apiStatus = document.getElementById("api-status");
+                apiStatus.innerHTML = "Down";
+                apiStatus.className = "badge badge-danger";
+            } else {
+                var apiStatus = document.getElementById("api-status");
+                apiStatus.innerHTML = "Operational";
+                apiStatus.className = "badge badge-success";
+            }
         }
     }
     xhr.open(method, apiBase + url);
@@ -36,6 +46,15 @@ function sendRequest(url, method, body, responseType, authenticate, callback) {
 
     if (body) xhr.send(body);
     else xhr.send();
+    setTimeout(function() {
+        if (xhr.readyState <= 1) {
+            var apiStatus = document.getElementById("api-status");
+            apiStatus.innerHTML = "Waking Up";
+            apiStatus.className = "badge badge-warning";
+        }
+    }, 2500);
+
+    lastApiRequest = new Date();
 }
 
 /**

@@ -77,3 +77,10 @@
 #files--secondary {
     height: 100%;
 }
+#api-status-container {
+    display: inline-block;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
