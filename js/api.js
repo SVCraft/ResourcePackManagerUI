@@ -110,8 +110,13 @@ function sendList(folder, callback) {
  * Send a read request to the api read the specified file
  * 
  * @param {string} [folder] The file to read
+ * @param {string} [responseType] The type of the response
  * @param {requestCallback} callback A callback with the response being the file content
  */
-function sendRead(file, callback) {
-    sendAuthenticatedRequest("read?file="+ encodeURIComponent(file), null, null, null, callback);
+function sendRead(file, responseType, callback) {
+    if (typeof callback == "undefined" && typeof responseType == "function") {
+        callback = responseType;
+        responseType = undefined;
+    }
+    sendAuthenticatedRequest("read?file="+ encodeURIComponent(file), null, null, responseType, callback);
 }

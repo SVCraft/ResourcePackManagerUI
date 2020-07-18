@@ -2,7 +2,6 @@ var editor;
 var modelCache = {};
 
 function loadEditor(callback) {
-    openSecondaryPage("files--editor--container");
     var editorContainer = document.getElementById("files--editor");
     editorContainer.innerHTML = "<i class=\"fas fa-spinner fa-spin fa-10x\"></i>";
 
@@ -25,6 +24,7 @@ function loadEditor(callback) {
 }
 
 function ensureEditorLoaded(callback) {
+    openSecondaryPage("files--editor--container");
     if (typeof monaco !== "undefined") callback();
     else loadEditor(callback);
 }

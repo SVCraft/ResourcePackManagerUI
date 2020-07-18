@@ -80,7 +80,7 @@ function list() {
                             var extention = filename.substr(filename.lastIndexOf(".") + 1);
                             var extentionInfo = fileExtentionInfo[extention];
                             ensureEditorLoaded(function() {
-                                sendRead(mergePaths(currentPath, filename), function(status, response, xhr) {
+                                sendRead(absolutePath, function(status, response, xhr) {
                                     var language;
                                     if (extentionInfo && extentionInfo.language) language = extentionInfo.language;
 
@@ -101,6 +101,22 @@ function list() {
 
                                     editor.setModel(model);
                                 });
+                            });
+                        });
+                    } else if (type == "image") {
+                        fileElement.addEventListener("click", function() {
+                            var filename = this.getAttribute("name");
+                            var absolutePath = this.getAttribute("path");
+                        
+                            sendRead(absolutePath, "blob", function(status, response, xhr) {
+                                var url = URL.createObjectURL(response);
+                                var image = document.createElement("img");
+                                image.style.width = "100%";
+                                image.src = url;
+                                openSecondaryPage("image-view--container");
+                                var imageView = document.getElementById("image-view");
+                                imageView.innerHTML = "";
+                                imageView.appendChild(image);
                             });
                         });
                     }
