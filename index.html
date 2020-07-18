@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
 
+        <script src="js/utils.js"></script>
         <script src="js/api.js"></script>
         <script src="js/login.js"></script>
         <script src="js/panel.js"></script>
@@ -57,7 +58,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="card files--card">
-                            <div class="card-body">
+                            <div class="card-body" id="files--card">
                                 <div id="files--window">
                                     <div style="text-align: center;">
                                         <i class="fas fa-spinner fa-spin fa-10x"></i>
@@ -66,10 +67,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 files--secondary" id="files--editor--container">
                         <div class="card files--card">
                             <div class="card-body">
-                                <div id="files--secondary"></div>
+                                <div id="files--editor"></div>
                             </div>
                         </div>
                     </div>

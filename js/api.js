@@ -113,6 +113,5 @@ function sendList(folder, callback) {
  * @param {requestCallback} callback A callback with the response being the file content
  */
 function sendRead(file, callback) {
-    if (file.startsWith("/")) file = file.substr(1);
     sendAuthenticatedRequest("read?file="+ encodeURIComponent(file), null, null, null, callback);
 }

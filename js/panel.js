@@ -7,7 +7,7 @@ var fileExtentionInfo = {
     "js": { icon: "file-code", type: "text" },
     "txt": { icon: "file-alt", type: "text" },
     "json": { icon: "file-alt", type: "text" },
-    "mcmeta": { icon: "file-alt", type: "text" }
+    "mcmeta": { icon: "file-alt", type: "text", language: "json" }
 };
 
 window.addEventListener("DOMContentLoaded", function() {
@@ -31,6 +31,7 @@ function list() {
 
                 fileElement.className = "file-entry";
                 fileElement.setAttribute("name", file.name);
+                fileElement.setAttribute("path", mergePaths(currentPath, file.name));
                 var icon = document.createElement("i");
 
                 var extention = file.name.substr(file.name.lastIndexOf(".") + 1);
@@ -74,13 +75,29 @@ function list() {
                     if (type == "text") {
                         fileElement.addEventListener("click", function() {
                             var filename = this.getAttribute("name");
+                            var absolutePath = this.getAttribute("path");
+
+                            var extention = filename.substr(filename.lastIndexOf(".") + 1);
+                            var extentionInfo = fileExtentionInfo[extention];
                             ensureEditorLoaded(function() {
-                                sendRead(currentPath + "/" + filename, function(status, response, xhr) {
-                                    var model = monaco.editor.createModel(
-                                        response,
-                                        undefined, // language
-                                        monaco.Uri.file(filename) // uri
-                                    );
+                                sendRead(mergePaths(currentPath, filename), function(status, response, xhr) {
+                                    var language;
+                                    if (extentionInfo && extentionInfo.language) language = extentionInfo.language;
+
+                                    var uri = monaco.Uri.file(absolutePath);
+
+                                    var model = modelCache[absolutePath];
+
+                                    if (!model) {
+                                        model = monaco.editor.createModel(
+                                            response,
+                                            language,
+                                            uri
+                                        );
+                                        modelCache[absolutePath] = model;
+                                    } else {
+                                        model.setValue(response);
+                                    }
 
                                     editor.setModel(model);
                                 });
@@ -95,4 +112,14 @@ function list() {
             alert("Failed to list files. "+ response);
         }
     });
+}
+
+function openSecondaryPage(id) {
+    var elements = document.getElementsByClassName("files--secondary");
+    for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        element.style.display = "none";
+    }
+
+    document.getElementById(id).style.display = "block";
 }
