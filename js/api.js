@@ -7,7 +7,7 @@
  * @param {XMLHttpRequest} request The request that was sent
  */
 
-var apiBase = "https://rpmapi.bkaw.cf/";
+var apiBase = "http://rpmapi.bkaw.cf/";
 var authorizationHeader = null;
 var lastApiRequest = null;
 
